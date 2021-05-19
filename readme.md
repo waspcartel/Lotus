@@ -30,6 +30,12 @@ npm run serve
 
 The frontend app is built using the `@starport/vue` and `@starport/vuex` packages. For details, see the [monorepo for Starport front-end development](https://github.com/tendermint/vue).
 
+
+## Partners
+- [ionomy Exchange](https://ionomy.com/)
+![NEW_ionomyPrimarylight](https://user-images.githubusercontent.com/71132155/118725842-78ba8d00-b7fe-11eb-95cb-71cfffa0941e.png)
+
+
 ## Learn more
 
 - [Starport](https://github.com/tendermint/starport)
