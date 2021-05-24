@@ -20,6 +20,8 @@ This is to be an example of community first blockchain development. Essentially,
 
 What baby becomes is up to its community.
 
+**PS:** That's both before and after launch, if you want to contribute code to baby before baby's birth, go for it!
+
 ## Get started
 
 ```
