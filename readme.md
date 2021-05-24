@@ -36,6 +36,14 @@ The frontend app is built using the `@starport/vue` and `@starport/vuex` package
 ![NEW_ionomyPrimarylight](https://user-images.githubusercontent.com/71132155/118725842-78ba8d00-b7fe-11eb-95cb-71cfffa0941e.png)
 
 
+- [Dandelion Labs](https://dandelionlabs.io/)
+<img alt="Dandelion Labs - Blockchain Product and Research Agency" src="https://dandelionlabs.io/wp-content/uploads/2021/05/logo-dandelion-labs@4x.png" height="70px">
+
+
+- [Blockchain Hanoi](https://blockchainhanoi.org/)
+<img alt="Blockchain Hanoi - Community and Events" src="https://blockchainhanoi.org/wp-content/uploads/2021/05/blockchain_hanoi_logo@4x.png" height="70px">
+
+
 ## Learn more
 
 - [Starport](https://github.com/tendermint/starport)
