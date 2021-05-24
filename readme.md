@@ -2,6 +2,24 @@
 
 **baby** is a blockchain built using Cosmos SDK and Tendermint and created with [Starport](https://github.com/tendermint/starport).
 
+Like most babies, it does almost nothing. This one has the advantage of not wearing diapers. With that said, it will require a good deal of care and support from its validator community.
+
+We came upon a situation where due to starport's ease of use, it was now possible for an entirely new class of developers to begin launching layer one blockchains using the Cosmos SDK.
+
+With that said, these developers didn't really know exactly what they were building, infrastructure wise. Baby is a project that will get both developers and business teams exposure to exactly what's being built when building a blockchain with the Cosmos SDK.
+
+In brief, when building a chain with the Cosmos SDK, you are building:
+
+* A network of nodes
+* A sovereign entity
+* A blockchain that can speak to other blockchains using the IBC protocol
+* A blockchain that can access liquidity from day one by connecting to dexes in the cosmos ecosystem
+* A community
+
+This is to be an example of community first blockchain development. Essentially, baby's development begins with the community and ends in a software development effort. All of the code here has been scaffolded using the Starport tool. Instead of specializing this chain in any way by adding types or anything else to it, it has been left completely plain. It is a blank slate, a tabula rasa.
+
+What baby becomes is up to its community.
+
 ## Get started
 
 ```
