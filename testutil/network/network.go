@@ -17,7 +17,12 @@ import (
 	tmrand "github.com/tendermint/tendermint/libs/rand"
 	tmdb "github.com/tendermint/tm-db"
 
-	"github.com/faddat/baby/app"
+	"github.com/babyblockchains/baby/app"
+)
+
+type (
+	Network = network.Network
+	Config  = network.Config
 )
 
 // New creates instance with fully configured cosmos network.

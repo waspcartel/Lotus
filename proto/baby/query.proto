@@ -1,11 +1,11 @@
 syntax = "proto3";
-package faddat.baby.baby;
+package babyblockchains.baby.baby;
 
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 // this line is used by starport scaffolding # 1
 
-option go_package = "github.com/faddat/baby/x/baby/types";
+option go_package = "github.com/babyblockchains/baby/x/baby/types";
 
 // Query defines the gRPC querier service.
 service Query {

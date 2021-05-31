@@ -11,14 +11,14 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
+	"github.com/babyblockchains/baby/x/baby/client/cli"
+	"github.com/babyblockchains/baby/x/baby/keeper"
+	"github.com/babyblockchains/baby/x/baby/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
 	cdctypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
-	"github.com/faddat/baby/x/baby/client/cli"
-	"github.com/faddat/baby/x/baby/keeper"
-	"github.com/faddat/baby/x/baby/types"
 	// this line is used by starport scaffolding # ibc/module/import
 )
 

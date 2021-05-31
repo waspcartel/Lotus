@@ -3,10 +3,10 @@ package baby
 import (
 	"fmt"
 
+	"github.com/babyblockchains/baby/x/baby/keeper"
+	"github.com/babyblockchains/baby/x/baby/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/faddat/baby/x/baby/keeper"
-	"github.com/faddat/baby/x/baby/types"
 )
 
 // NewHandler ...

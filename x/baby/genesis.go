@@ -1,9 +1,9 @@
 package baby
 
 import (
+	"github.com/babyblockchains/baby/x/baby/keeper"
+	"github.com/babyblockchains/baby/x/baby/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/faddat/baby/x/baby/keeper"
-	"github.com/faddat/baby/x/baby/types"
 )
 
 // InitGenesis initializes the capability module's state from a provided genesis

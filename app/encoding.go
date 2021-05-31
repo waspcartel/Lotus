@@ -1,8 +1,8 @@
 package app
 
 import (
+	"github.com/babyblockchains/baby/app/params"
 	"github.com/cosmos/cosmos-sdk/std"
-	"github.com/faddat/baby/app/params"
 )
 
 // MakeEncodingConfig creates an EncodingConfig for testing

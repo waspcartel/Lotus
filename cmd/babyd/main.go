@@ -3,9 +3,9 @@ package main
 import (
 	"os"
 
+	"github.com/babyblockchains/baby/app"
+	"github.com/babyblockchains/baby/cmd/babyd/cmd"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
-	"github.com/faddat/baby/app"
-	"github.com/faddat/baby/cmd/babyd/cmd"
 )
 
 func main() {

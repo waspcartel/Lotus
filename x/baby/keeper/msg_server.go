@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/faddat/baby/x/baby/types"
+	"github.com/babyblockchains/baby/x/baby/types"
 )
 
 type msgServer struct {

@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
+	"github.com/babyblockchains/baby/x/baby/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/faddat/baby/x/baby/types"
 )
 
 func setupMsgServer(t testing.TB) (types.MsgServer, context.Context) {
