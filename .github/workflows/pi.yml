@@ -1,4 +1,4 @@
-name: gaia
+name: pi
 
 on: [push,pull_request]
 
