@@ -11,6 +11,12 @@ ENV GOPATH=/go
 
 
 # Download starport, so we can join the network
+RUN sed -i -e "s/^CheckSpace/#!!!CheckSpace/g" /etc/pacman.conf && \
+                pacman -Syyu npm yarn go base-devel profobuf go-ipfs git && \
+                # TODO: hnsd
+                sed -i -e "s/^#!!!CheckSpace/CheckSpace/g" /etc/pacman.conf 
+
+
 RUN git clone https://github.com/faddat/starport --branch arm64-mac-linux && \
         cd starport && \
         make install && \
