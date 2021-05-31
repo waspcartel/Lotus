@@ -12,7 +12,7 @@ ENV GOPATH=/go
 
 # Download starport, so we can join the network
 RUN sed -i -e "s/^CheckSpace/#!!!CheckSpace/g" /etc/pacman.conf && \
-                pacman -Syyu --noconfirm npm yarn go base-devel profobufs go-ipfs git && \
+                pacman -Syyu --noconfirm npm yarn go base-devel protobuf protobuf-c go-ipfs git && \
                 # TODO: hnsd
                 sed -i -e "s/^#!!!CheckSpace/CheckSpace/g" /etc/pacman.conf 
 
