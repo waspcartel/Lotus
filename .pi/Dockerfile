@@ -7,6 +7,7 @@ COPY motd /etc/motd
 # COPY gaia.service /etc/systemd/system/gaia.service
 
 ENV GOPATH=/go
+ENV PATH=$PATH:/go/bin
 
 
 
