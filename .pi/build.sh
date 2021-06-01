@@ -17,14 +17,13 @@ docker buildx build --platform linux/arm64 --tag baby --load --progress plain .
 
 # EXTRACT IMAGE
 # Make a temporary directory
-sudo rm -rf .tmp || true
 mkdir .tmp/
 
 # remove anything in the way of extraction
 # docker run --rm --tty --volume $(pwd)/./.tmp:/root/./.tmp --workdir /root/./.tmp/.. faddat/toolbox rm -rf ./.tmp/result-rootfs
 
 # save the image to result-rootfs.tar
-docker save --output ./.tmp/result-rootfs.tar baby
+docker save --platform linux/arm64 --output ./.tmp/result-rootfs.tar baby
 
 # Extract the image using docker-extract
 docker run --rm --tty --volume $(pwd)/./.tmp:/root/./.tmp --workdir /root/./.tmp/.. faddat/toolbox /tools/docker-extract --root ./.tmp/result-rootfs  ./.tmp/result-rootfs.tar
@@ -69,7 +68,7 @@ mkdir -p images
 fallocate -l 4G "images/baby.img"
 
 # loop-mount the image file so it becomes a disk
-export LOOP=$(sudo losetup --find --show baby/gaia.img)
+export LOOP=$(sudo losetup --find --show images/baby.img)
 
 # partition the loop-mounted disk
 sudo parted --script $LOOP mklabel msdos
@@ -93,19 +92,11 @@ sudo rsync -a ./.tmp/result-rootfs/boot/* mnt/boot
 sudo rsync -a ./.tmp/result-rootfs/* mnt/rootfs --exclude boot
 sudo mkdir mnt/rootfs/boot
 
-
+# ONLY NEEDED WHEN CI IS BARE METAL
 # chill for a moment before unmounting
-sleep 20
-sudo umount mnt/boot mnt/rootfs
-sleep 20
-sudo losetup -d $LOOP # drop the loop mount
+# sleep 20
+# sudo umount mnt/boot mnt/rootfs
+# sleep 20
+# sudo losetup -d $LOOP # drop the loop mount
 
 
-# Tell pi where its memory card is:  This is needed only with the mainline linux kernel provied by linux-aarch64
-# sed -i 's/mmcblk0/mmcblk1/g' ./.tmp/result-rootfs/etc/fstab
-
-
-
-# Delete .tmp and mnt
-sudo rm -rf .tmp
-sudo rm -rf mnt
