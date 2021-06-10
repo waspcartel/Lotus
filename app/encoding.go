@@ -1,7 +1,7 @@
 package app
 
 import (
-	"github.com/babyblockchains/baby/app/params"
+	"github.com/babyblockchains/lotus/app/params"
 	"github.com/cosmos/cosmos-sdk/std"
 )
 

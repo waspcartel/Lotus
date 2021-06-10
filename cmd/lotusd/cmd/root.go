@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/babyblockchains/baby/app/params"
+	"github.com/babyblockchains/lotus/app/params"
 	"github.com/cosmos/cosmos-sdk/snapshots"
 
 	"github.com/spf13/cast"
@@ -16,7 +16,7 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/babyblockchains/baby/app"
+	"github.com/babyblockchains/lotus/app"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/debug"

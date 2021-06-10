@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/babyblockchains/baby/x/baby/types"
+	"github.com/babyblockchains/lotus/x/lotus/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

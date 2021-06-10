@@ -15,8 +15,8 @@ import (
 	tmos "github.com/tendermint/tendermint/libs/os"
 	dbm "github.com/tendermint/tm-db"
 
-	appparams "github.com/babyblockchains/baby/app/params"
-	"github.com/babyblockchains/baby/docs"
+	appparams "github.com/babyblockchains/lotus/app/params"
+	"github.com/babyblockchains/lotus/docs"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/client/grpc/tmservice"
 	"github.com/cosmos/cosmos-sdk/client/rpc"
@@ -85,12 +85,12 @@ import (
 	tmjson "github.com/tendermint/tendermint/libs/json"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
-	"github.com/babyblockchains/baby/x/baby"
-	babykeeper "github.com/babyblockchains/baby/x/baby/keeper"
-	babytypes "github.com/babyblockchains/baby/x/baby/types"
+	"github.com/babyblockchains/lotus/x/lotus"
+	lotuskeeper "github.com/babyblockchains/lotus/x/lotus/keeper"
+	lotustypes "github.com/babyblockchains/lotus/x/lotus/types"
 )
 
-const Name = "baby"
+const Name = "lotus"
 
 // this line is used by starport scaffolding # stargate/wasm/app/enabledProposals
 
@@ -134,7 +134,7 @@ var (
 		transfer.AppModuleBasic{},
 		vesting.AppModuleBasic{},
 		// this line is used by starport scaffolding # stargate/app/moduleBasic
-		baby.AppModuleBasic{},
+		lotus.AppModuleBasic{},
 	)
 
 	// module account permissions
@@ -202,7 +202,7 @@ type App struct {
 
 	// this line is used by starport scaffolding # stargate/app/keeperDeclaration
 
-	BabyKeeper babykeeper.Keeper
+	LotusKeeper lotuskeeper.Keeper
 
 	// the module manager
 	mm *module.Manager
@@ -232,7 +232,7 @@ func New(
 		govtypes.StoreKey, paramstypes.StoreKey, ibchost.StoreKey, upgradetypes.StoreKey,
 		evidencetypes.StoreKey, ibctransfertypes.StoreKey, capabilitytypes.StoreKey,
 		// this line is used by starport scaffolding # stargate/app/storeKey
-		babytypes.StoreKey,
+		lotustypes.StoreKey,
 	)
 	tkeys := sdk.NewTransientStoreKeys(paramstypes.TStoreKey)
 	memKeys := sdk.NewMemoryStoreKeys(capabilitytypes.MemStoreKey)
@@ -325,12 +325,12 @@ func New(
 
 	// this line is used by starport scaffolding # stargate/app/keeperDefinition
 
-	app.BabyKeeper = *babykeeper.NewKeeper(
+	app.LotusKeeper = *lotuskeeper.NewKeeper(
 		appCodec,
-		keys[babytypes.StoreKey],
-		keys[babytypes.MemStoreKey],
+		keys[lotustypes.StoreKey],
+		keys[lotustypes.MemStoreKey],
 	)
-	babyModule := baby.NewAppModule(appCodec, app.BabyKeeper)
+	lotusModule := lotus.NewAppModule(appCodec, app.LotusKeeper)
 
 	app.GovKeeper = govkeeper.NewKeeper(
 		appCodec, keys[govtypes.StoreKey], app.GetSubspace(govtypes.ModuleName), app.AccountKeeper, app.BankKeeper,
@@ -373,7 +373,7 @@ func New(
 		params.NewAppModule(app.ParamsKeeper),
 		transferModule,
 		// this line is used by starport scaffolding # stargate/app/appModule
-		babyModule,
+		lotusModule,
 	)
 
 	// During begin block slashing happens after distr.BeginBlocker so that
@@ -407,7 +407,7 @@ func New(
 		evidencetypes.ModuleName,
 		ibctransfertypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/initGenesis
-		babytypes.ModuleName,
+		lotustypes.ModuleName,
 	)
 
 	app.mm.RegisterInvariants(&app.CrisisKeeper)
@@ -595,7 +595,7 @@ func initParamsKeeper(appCodec codec.BinaryMarshaler, legacyAmino *codec.LegacyA
 	paramsKeeper.Subspace(ibctransfertypes.ModuleName)
 	paramsKeeper.Subspace(ibchost.ModuleName)
 	// this line is used by starport scaffolding # stargate/app/paramSubspace
-	paramsKeeper.Subspace(babytypes.ModuleName)
+	paramsKeeper.Subspace(lotustypes.ModuleName)
 
 	return paramsKeeper
 }
