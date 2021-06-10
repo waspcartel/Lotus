@@ -1,4 +1,4 @@
-module github.com/babyblockchains/baby
+module github.com/LotusBlockchains/Lotus
 
 go 1.16
 
