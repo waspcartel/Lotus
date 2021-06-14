@@ -7,7 +7,7 @@ set -exo pipefail
 set -o xtrace
 
 # Build the system image in Docker
-docker buildx build --platform linux/arm64 --tag baby --load --progress plain .
+docker buildx build --platform linux/arm64 --tag lotus --load --progress plain .
 
 # docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
 
