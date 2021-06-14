@@ -23,7 +23,7 @@ mkdir .tmp/
 # docker run --rm --tty --volume $(pwd)/./.tmp:/root/./.tmp --workdir /root/./.tmp/.. faddat/toolbox rm -rf ./.tmp/result-rootfs
 
 # save the image to result-rootfs.tar
-docker save --platform linux/arm64 --output ./.tmp/result-rootfs.tar baby
+docker save --output ./.tmp/result-rootfs.tar lotus
 
 # Extract the image using docker-extract
 docker run --rm --tty --volume $(pwd)/./.tmp:/root/./.tmp --workdir /root/./.tmp/.. faddat/toolbox /tools/docker-extract --root ./.tmp/result-rootfs  ./.tmp/result-rootfs.tar
@@ -65,10 +65,10 @@ rm -rf images || true
 mkdir -p images
 
 # Make the image file
-fallocate -l 4G "images/baby.img"
+fallocate -l 4G "images/lotus.img"
 
 # loop-mount the image file so it becomes a disk
-export LOOP=$(sudo losetup --find --show images/baby.img)
+export LOOP=$(sudo losetup --find --show images/lotus.img)
 
 # partition the loop-mounted disk
 sudo parted --script $LOOP mklabel msdos
