@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: baby
+name: lotus
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -10,12 +10,13 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
     strategy:
       matrix:
+        on: [ubuntu-latest,macos-latest,windows-latest]
         arch: [amd64, arm64]
         targetos: [windows, darwin, linux]
-    name: baby ${{ matrix.arch }} for ${{ matrix.targetos }}
+    runs-on: ${{ matrix.on }}
+    name: baby ${{ matrix.arch }} for ${{ matrix.targetos }} built on ${{ matrix.on }}
     steps:
       - uses: actions/checkout@v2
       - name: Setup go
@@ -29,11 +30,9 @@ jobs:
       - name: Compile
         run: |
           go mod download
-          cd cmd/babyd
-          go build .
+          go build ./...
 
       - uses: actions/upload-artifact@v2
         with:
           name: babyd ${{ matrix.targetos }} ${{ matrix.arch }}
           path: cmd/babyd/babyd
-
