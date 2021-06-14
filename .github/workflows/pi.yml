@@ -3,7 +3,7 @@ name: pi
 on: [push,pull_request]
 
 jobs:
-  gaia:
+  lotus:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
