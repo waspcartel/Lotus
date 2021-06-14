@@ -1,6 +1,6 @@
-# baby
+# Lotus
 
-**baby** is a blockchain built using Cosmos SDK and Tendermint and created with [Starport](https://github.com/tendermint/starport).
+**Lotus** is a blockchain built using Cosmos SDK and Tendermint and created with [Starport](https://github.com/tendermint/starport).
 
 Like most babies, it does almost nothing. This one has the advantage of not wearing diapers. With that said, it will require a good deal of care and support from its validator community.
 
