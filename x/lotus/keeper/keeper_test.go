@@ -3,7 +3,7 @@ package keeper
 import (
 	"testing"
 
-	"github.com/babyblockchains/baby/x/baby/types"
+	"github.com/babyblockchains/lotus/x/lotus/types"
 	"github.com/cosmos/cosmos-sdk/codec"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	"github.com/cosmos/cosmos-sdk/store"

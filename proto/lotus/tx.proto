@@ -1,9 +1,9 @@
 syntax = "proto3";
-package babyblockchains.baby.baby;
+package babyblockchains.lotus.lotus;
 
 // this line is used by starport scaffolding # proto/tx/import
 
-option go_package = "github.com/babyblockchains/baby/x/baby/types";
+option go_package = "github.com/babyblockchains/lotus/x/lotus/types";
 
 // Msg defines the Msg service.
 service Msg {

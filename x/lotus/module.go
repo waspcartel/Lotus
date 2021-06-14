@@ -1,4 +1,4 @@
-package baby
+package lotus
 
 import (
 	"encoding/json"
@@ -11,9 +11,9 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/babyblockchains/baby/x/baby/client/cli"
-	"github.com/babyblockchains/baby/x/baby/keeper"
-	"github.com/babyblockchains/baby/x/baby/types"
+	"github.com/babyblockchains/lotus/x/lotus/client/cli"
+	"github.com/babyblockchains/lotus/x/lotus/keeper"
+	"github.com/babyblockchains/lotus/x/lotus/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
 	cdctypes "github.com/cosmos/cosmos-sdk/codec/types"

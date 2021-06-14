@@ -1,10 +1,10 @@
-package baby
+package lotus
 
 import (
 	"fmt"
 
-	"github.com/babyblockchains/baby/x/baby/keeper"
-	"github.com/babyblockchains/baby/x/baby/types"
+	"github.com/babyblockchains/lotus/x/lotus/keeper"
+	"github.com/babyblockchains/lotus/x/lotus/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )

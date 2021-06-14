@@ -1,11 +1,11 @@
 syntax = "proto3";
-package babyblockchains.baby.baby;
+package babyblockchains.lotus.lotus;
 
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 // this line is used by starport scaffolding # 1
 
-option go_package = "github.com/babyblockchains/baby/x/baby/types";
+option go_package = "github.com/babyblockchains/lotus/x/lotus/types";
 
 // Query defines the gRPC querier service.
 service Query {

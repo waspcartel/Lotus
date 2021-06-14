@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	"github.com/babyblockchains/baby/app"
-	"github.com/babyblockchains/baby/cmd/babyd/cmd"
+	"github.com/babyblockchains/lotus/app"
+	"github.com/babyblockchains/lotus/cmd/lotusd/cmd"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 )
 

@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/babyblockchains/baby/x/baby/types"
+	"github.com/babyblockchains/lotus/x/lotus/types"
 )
 
 type msgServer struct {
