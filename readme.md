@@ -1,4 +1,4 @@
-# Lotus: Launch First, Ask Questions Later
+# Lotus: An educational blockchain platform
 
 **Lotus** is a blockchain built using Cosmos SDK and Tendermint and created with [Starport](https://github.com/tendermint/starport).
 
@@ -9,12 +9,11 @@ With that said, these developers didn't really know exactly what they were build
 In brief, when building a chain with the Cosmos SDK, you are building:
 
 * A network of nodes
-* A sovereign entity
 * A blockchain that can speak to other blockchains using the IBC protocol
 * A blockchain that can access liquidity from day one by connecting to dexes in the cosmos ecosystem
-* A community
+* A sovereign community
 
-This is to be an example of community first blockchain development. Essentially, Lotus' development begins with the community and ends in a software development effort. All of the code here has been scaffolded using the Starport tool. Instead of specializing this chain in any way by adding types or anything else to it, it has been left completely plain. It is a blank slate, a tabula rasa.
+This is to be an example of community first blockchain development. Lotus' development begins with the community and ends in a software development effort. All of the code here has been scaffolded using the Starport tool. Instead of specializing this chain in any way by adding types or anything else to it, it has been left completely plain. It is a blank slate, a tabula rasa.
 
 **PS:** That's both before and after launch, if you want to contribute code to baby before baby's birth, go for it!
 
