@@ -53,7 +53,6 @@ The frontend app is built using the `@starport/vue` and `@starport/vuex` package
 - [Dandelion Labs](https://dandelionlabs.io/)
 <img alt="Dandelion Labs - Blockchain Product and Research Agency" src="https://dandelionlabs.io/wp-content/uploads/2021/05/logo-dandelion-labs@4x.png" height="70px">
 
-
 - [Blockchain Hanoi](https://blockchainhanoi.org/)
 <img alt="Blockchain Hanoi - Community and Events" src="https://blockchainhanoi.org/wp-content/uploads/2021/05/blockchain_hanoi_logo@4x.png" height="70px">
 
@@ -62,6 +61,9 @@ The frontend app is built using the `@starport/vue` and `@starport/vuex` package
 - [DFY and ⛏️](https://defi.com.vm)
 
 - [🤬 Witnesses](https://ecosynthesizer.com/blurt/witnesses)
+
+- [PCBViet](https://pcbviet.com/)
+<img alt="PCBVIET - The trusted hardware design partner" src="https://pcbviet.com/wp-content/uploads/2020/02/cropped-PCBViet_logo_350x70-1.png" height="70px">
 
 - [👟 An1]
 
