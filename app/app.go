@@ -15,7 +15,6 @@ import (
 	tmos "github.com/tendermint/tendermint/libs/os"
 	dbm "github.com/tendermint/tm-db"
 
-	appparams "github.com/babyblockchains/lotus/app/params"
 	"github.com/babyblockchains/lotus/docs"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/client/grpc/tmservice"
@@ -85,12 +84,17 @@ import (
 	tmjson "github.com/tendermint/tendermint/libs/json"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
-	"github.com/babyblockchains/lotus/x/lotus"
-	lotuskeeper "github.com/babyblockchains/lotus/x/lotus/keeper"
-	lotustypes "github.com/babyblockchains/lotus/x/lotus/types"
+	lotusmodule "github.com/babyblockchains/lotus/x/lotus"
+	lotusmodulekeeper "github.com/babyblockchains/lotus/x/lotus/keeper"
+	lotusmoduletypes "github.com/babyblockchains/lotus/x/lotus/types"
+
+	"github.com/tendermint/spm/cosmoscmd"
 )
 
-const Name = "lotus"
+const (
+	AccountAddressPrefix = "cosmos"
+	Name                 = "lotus"
+)
 
 // this line is used by starport scaffolding # stargate/wasm/app/enabledProposals
 
@@ -134,7 +138,7 @@ var (
 		transfer.AppModuleBasic{},
 		vesting.AppModuleBasic{},
 		// this line is used by starport scaffolding # stargate/app/moduleBasic
-		lotus.AppModuleBasic{},
+		lotusmodule.AppModuleBasic{},
 	)
 
 	// module account permissions
@@ -146,11 +150,12 @@ var (
 		stakingtypes.NotBondedPoolName: {authtypes.Burner, authtypes.Staking},
 		govtypes.ModuleName:            {authtypes.Burner},
 		ibctransfertypes.ModuleName:    {authtypes.Minter, authtypes.Burner},
+		// this line is used by starport scaffolding # stargate/app/maccPerms
 	}
 )
 
 var (
-	_ CosmosApp               = (*App)(nil)
+	_ cosmoscmd.CosmosApp     = (*App)(nil)
 	_ servertypes.Application = (*App)(nil)
 )
 
@@ -202,20 +207,25 @@ type App struct {
 
 	// this line is used by starport scaffolding # stargate/app/keeperDeclaration
 
-	LotusKeeper lotuskeeper.Keeper
+	LotusKeeper lotusmodulekeeper.Keeper
 
 	// the module manager
 	mm *module.Manager
 }
 
 // New returns a reference to an initialized Gaia.
-// NewSimApp returns a reference to an initialized SimApp.
 func New(
-	logger log.Logger, db dbm.DB, traceStore io.Writer, loadLatest bool, skipUpgradeHeights map[int64]bool,
-	homePath string, invCheckPeriod uint, encodingConfig appparams.EncodingConfig,
-	// this line is used by starport scaffolding # stargate/app/newArgument
-	appOpts servertypes.AppOptions, baseAppOptions ...func(*baseapp.BaseApp),
-) *App {
+	logger log.Logger,
+	db dbm.DB,
+	traceStore io.Writer,
+	loadLatest bool,
+	skipUpgradeHeights map[int64]bool,
+	homePath string,
+	invCheckPeriod uint,
+	encodingConfig cosmoscmd.EncodingConfig,
+	appOpts servertypes.AppOptions,
+	baseAppOptions ...func(*baseapp.BaseApp),
+) cosmoscmd.App {
 
 	appCodec := encodingConfig.Marshaler
 	cdc := encodingConfig.Amino
@@ -232,7 +242,7 @@ func New(
 		govtypes.StoreKey, paramstypes.StoreKey, ibchost.StoreKey, upgradetypes.StoreKey,
 		evidencetypes.StoreKey, ibctransfertypes.StoreKey, capabilitytypes.StoreKey,
 		// this line is used by starport scaffolding # stargate/app/storeKey
-		lotustypes.StoreKey,
+		lotusmoduletypes.StoreKey,
 	)
 	tkeys := sdk.NewTransientStoreKeys(paramstypes.TStoreKey)
 	memKeys := sdk.NewMemoryStoreKeys(capabilitytypes.MemStoreKey)
@@ -323,19 +333,19 @@ func New(
 	// If evidence needs to be handled for the app, set routes in router here and seal
 	app.EvidenceKeeper = *evidenceKeeper
 
-	// this line is used by starport scaffolding # stargate/app/keeperDefinition
-
-	app.LotusKeeper = *lotuskeeper.NewKeeper(
-		appCodec,
-		keys[lotustypes.StoreKey],
-		keys[lotustypes.MemStoreKey],
-	)
-	lotusModule := lotus.NewAppModule(appCodec, app.LotusKeeper)
-
 	app.GovKeeper = govkeeper.NewKeeper(
 		appCodec, keys[govtypes.StoreKey], app.GetSubspace(govtypes.ModuleName), app.AccountKeeper, app.BankKeeper,
 		&stakingKeeper, govRouter,
 	)
+
+	app.LotusKeeper = *lotusmodulekeeper.NewKeeper(
+		appCodec,
+		keys[lotusmoduletypes.StoreKey],
+		keys[lotusmoduletypes.MemStoreKey],
+	)
+	lotusModule := lotusmodule.NewAppModule(appCodec, app.LotusKeeper)
+
+	// this line is used by starport scaffolding # stargate/app/keeperDefinition
 
 	// Create static IBC router, add transfer route, then set and seal it
 	ibcRouter := porttypes.NewRouter()
@@ -407,7 +417,7 @@ func New(
 		evidencetypes.ModuleName,
 		ibctransfertypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/initGenesis
-		lotustypes.ModuleName,
+		lotusmoduletypes.ModuleName,
 	)
 
 	app.mm.RegisterInvariants(&app.CrisisKeeper)
@@ -595,7 +605,7 @@ func initParamsKeeper(appCodec codec.BinaryMarshaler, legacyAmino *codec.LegacyA
 	paramsKeeper.Subspace(ibctransfertypes.ModuleName)
 	paramsKeeper.Subspace(ibchost.ModuleName)
 	// this line is used by starport scaffolding # stargate/app/paramSubspace
-	paramsKeeper.Subspace(lotustypes.ModuleName)
+	paramsKeeper.Subspace(lotusmoduletypes.ModuleName)
 
 	return paramsKeeper
 }
