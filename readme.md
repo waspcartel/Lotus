@@ -58,7 +58,7 @@ The frontend app is built using the `@starport/vue` and `@starport/vuex` package
 
 - [Neo](https://neo.co/) <img alt="Neo" src="https://media-exp3.licdn.com/dms/image/C560BAQFMvXAcjdLhvQ/company-logo_200_200/0/1602110473139?e=2159024400&v=beta&t=RCp7MbF5AwUsr43rO9BpzpcH3r7KnNl2NHAkMnT7TDU">
 
-- [DFY and ⛏️](https://defi.com.vm)
+- [https://raw.githubusercontent.com/defi-vn/defi-landing-page/master/static/img/DFY-200x200.png and ⛏️](https://defi.com.vm)
 
 - [🤬 Witnesses](https://ecosynthesizer.com/blurt/witnesses)
 
